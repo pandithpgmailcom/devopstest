@@ -6,17 +6,17 @@
 trigger:
 - main
 
-- job: 'install_library'
-  dependsOn: 'library_flit'
-  pool:
-    vmImage: 'Ubuntu-16.04'
-  strategy:
-    matrix:
-      Python36:
-        python.version: '3.6'
-      Python37:
-        python.version: '3.7'
-    maxParallel: 2
+-job:'install_library'
+ dependsOn: 'library_flit'
+ pool:
+  vmImage: 'Ubuntu-16.04'
+ strategy:
+  matrix:
+  Python36:
+  python.version: '3.6'
+  Python37:
+  python.version: '3.7'
+  maxParallel: 2
   steps:
   - task: UsePythonVersion@0
     inputs:
