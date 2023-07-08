@@ -5,7 +5,7 @@
 # trigger:
 # - main
 ---
-- job: install_library
+-job: install_library
   dependsOn: library_flit
   pool: null
     vmImage: Ubuntu-16.04
