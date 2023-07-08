@@ -2,15 +2,14 @@
 # Create and test a Python package on multiple Python versions.
 # Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/python
-
-trigger:
-- main
+# trigger:
+# - main
 ---
 - job: install_library
   dependsOn: library_flit
   pool: null
     vmImage: Ubuntu-16.04
-    strategy: null
+  strategy: null
     matrix: null
     Python36: null
     python.version: "3.6"
@@ -30,6 +29,5 @@ trigger:
           downloadPath: $(System.ArtifactsDirectory)
       - script: >
           python -m pip install --upgrade pip
-
           find $(System.ArtifactsDirectory)/Library_Flit_Wheel/library-flit/dist/*.whl | xargs pip install
         displayName: Install package
